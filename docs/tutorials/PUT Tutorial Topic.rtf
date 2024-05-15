@@ -1,0 +1,73 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2639
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fnil\fcharset0 .SFNSMono-Regular;}
+{\colortbl;\red255\green255\blue255;\red24\green26\blue30;\red255\green248\blue185;}
+{\*\expandedcolortbl;;\cssrgb\c12157\c13725\c15686;\cssrgb\c100000\c97255\c77255;}
+\margl1440\margr1440\vieww11520\viewh8400\viewkind0
+\deftab720
+\pard\pardeftab720\partightenfactor0
+
+\f0\fs24 \cf2 \cb3 \expnd0\expndtw0\kerning0
+---\
+layout: page\
+---\
+\
+# Tutorial: Change a task name\
+\
+In this tutorial, you will learn how to change the name of an existing task.\
+\
+Expect this tutorial to take about 15 minutes to complete.\
+\
+## Before you start\
+\
+Make sure you've completed the [Before you start a tutorial](before-you-start-a-tutorial) topic on the development system you'll use for the tutorial.\
+\
+## Change a task name \
+\
+You will need to use the \'91PUT\'92 command to perform a request from the service to change a given task to a new name [`task`](../api/task/title).\
+\
+For the purpose of this tutorial title instead of name will be used in the PUT request.\
+\
+\
+### To change a task name (title)\
+\
+1. Confirm your local service is running. If it is not running, start it by using this command:\
+\
+    ```shell\
+    cd <your-github-workspace>/to-do-service/api\
+    json-server -w to-do-db-source.json\
+    ```\
+\
+1. Open the Postman app on your desktop.\
+1. Create a new request with these values:\
+    * **METHOD**: PUT\
+    * **URL**: `\{\{base_url\}\}/tasks?title=<replace this text with full title>`\
+   \
+   **Example:**\
+\
+   `http://localhost:3000/tasks?title=Book concert tickets`\
+   \
+      **Note:** You need to match the case of the title.\
+\
+\
+1. In the Postman app, select **Send** to make the request.\
+1. Watch for the response body, which should look something like the following:\
+\
+    ```js\
+   [\
+    \{\
+        "user_id": 1,\
+        "title": \'93Book concert tickets\'94,\
+        \'93Title\'94: \'93Get concert tickets\'94\
+        "description": \'93Get tickets for Billy Joel concert\'94,\
+        "due_date": "2024-04-02T15:00",\
+        "warning": "-30",\
+        "id": "2"\
+    \}\
+     \
+   ]\
+  \
+Nothing will be returned if no titles are found matching the information that you entered.\
+\
+This Postman tutorial can also be done in other languages. Use the data from the initial request and follow the syntax of the selected programming language to execute your API call.\
+\
+}
