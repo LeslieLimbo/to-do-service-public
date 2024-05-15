@@ -1,0 +1,63 @@
+---
+layout: page
+---
+
+# Tutorial: Change a task name
+
+In this tutorial, you will learn how to change the name of an existing task.
+
+Expect this tutorial to take about 15 minutes to complete.
+
+## Before you start
+
+Make sure you've completed the [Before you start a tutorial](before-you-start-a-tutorial) topic on the development system you'll use for the tutorial.
+
+## Change a task name 
+
+You will need to use the ‘PUT’ command to perform a request from the service to change a given task to a new name [`task`](../api/task/title).
+
+For the purpose of this tutorial title instead of name will be used in the PUT request.
+
+
+### To change a task name (title)
+
+1. Confirm your local service is running. If it is not running, start it by using this command:
+
+    ```shell
+    cd <your-github-workspace>/to-do-service/api
+    json-server -w to-do-db-source.json
+    ```
+
+1. Open the Postman app on your desktop.
+1. Create a new request with these values:
+    * **METHOD**: PUT
+    * **URL**: `{{base_url}}/tasks?title=<replace this text with full title>`
+   
+   **Example:**
+
+   `http://localhost:3000/tasks?title=Book concert tickets`
+   
+      **Note:** You need to match the case of the title.
+
+
+1. In the Postman app, select **Send** to make the request.
+1. Watch for the response body, which should look something like the following:
+
+    ```js
+   [
+    {
+        "user_id": 1,
+        "title": “Book concert tickets”,
+        “Title”: “Get concert tickets”
+        "description": “Get tickets for Billy Joel concert”,
+        "due_date": "2024-04-02T15:00",
+        "warning": "-30",
+        "id": "2"
+    }
+     
+   ]
+  
+Nothing will be returned if no titles are found matching the information that you entered.
+
+This Postman tutorial can also be done in other languages. Use the data from the initial request and follow the syntax of the selected programming language to execute your API call.
+
